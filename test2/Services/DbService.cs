@@ -27,10 +27,11 @@ namespace test2.Services
 
             var pet = new Volunteer_Pet() { IdVolunteer = id, IdPet = request.IdPet, DateAccepted = request.DateAccepted };
             _context.Volunteer_Pets.Add(pet);
+            _context.SaveChanges();
                 
             return new AssignPetResponse() { IdVolunteer = id, IdPet = request.IdPet, DateAccepted = request.DateAccepted };
         }
-        /*
+
         public List<Pet> GetPets(int id,int? year)
         {
             var volunteerCheck = _context.Volunteers.FirstOrDefault(p => p.IdVolunteer == id);
@@ -38,6 +39,5 @@ namespace test2.Services
             if (year == null) { }
             return null;
         }
-        */
     }
 }
